@@ -7,37 +7,41 @@
 body {
   display: grid;
   grid-template-areas:
-    "nav nav"
-    "menu main"
-    "footer main";
-  min-width: 100vh;
-  grid-template-rows: auto auto 70px;
-  grid-template-columns: 145px auto;
+    "nav"
+    "menu"
+    "main"
+    "footer";
+  min-width: 90vh;
+  grid-template-rows: auto auto auto 70px;
+  grid-template-columns:auto;
 }
 nav {
   grid-area: nav;
 }
 menu {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   grid-area: menu;
   padding: 16px;
+  gap: 35px;
+  justify-content: center;
 }
 
 main {
   grid-area: main;
+
 }
 footer {
   grid-area: footer;
 }
 img {
   width: 100%;
-  height: 145px;
+  height: 140px;
   object-fit: cover;
 }
 .grid-platos {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto;
   gap: 20px;
   padding: 20px;
 }
@@ -53,7 +57,7 @@ img {
   padding: 10px;
 }
 h2 {
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -66,21 +70,22 @@ h2 {
   border: solid 2px rgb(216, 213, 147);
   border-radius: 4px;
 }
-
-@media (max-width: 576px) {
+@media screen and (min-width: 576px) {
   body{
-    width: 550px;
-  }
-  .grid-platos {
-    grid-template-columns: 1fr;
-    width: 300px;
-  }
-  nav {
-    width: 550px;
+    grid-template-areas:
+    "nav nav"
+    "menu main"
+    "footer main";
+    grid-template-columns: 100px auto ;
+    grid-template-rows: 70px auto 30px;
   }
   h2{
     display: flex;
-    justify-content: start;
-    padding-left: 100px;
+  }
+  .grid-platos{
+    grid-template-columns: auto auto auto;
+  }
+  menu{
+    flex-direction: column;
   }
 }
